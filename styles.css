@@ -57,3 +57,14 @@ body {
     display: flex;
     
 }
+
+.choice {
+    transition: all .37s;
+}
+
+.playing {
+    transform:scale(1.1);
+    border-color:whitesmoke;
+    box-shadow: 0 0 100px whitesmoke;
+    border-radius: 25px;
+}

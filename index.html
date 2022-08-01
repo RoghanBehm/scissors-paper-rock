@@ -70,7 +70,7 @@
 
         
         const btns = document.querySelectorAll(".choice");
-        
+
         const result = document.createElement('div');
         container.appendChild(result);
         result.classList.add('result')
@@ -83,6 +83,7 @@
 
         btns.forEach(choice => choice.addEventListener('click', () =>  {
             let playerSelection = choice.id;
+           
             let computerSelection = getComputerChoice();
             
             result.textContent = playRound(playerSelection, computerSelection);
@@ -97,9 +98,14 @@
                 gameEnd.textContent = "You lose!";
                 computerPoints = 0;
                 playerPoints = 0;
-            }
-
             
+            }
+            function removeTransition(e) {
+                if (e.propertyName !== 'transform') return;
+                this.classList.remove('playing');
+            }
+            choice.classList.add('playing');
+            choice.addEventListener('transitionend', removeTransition);
            // let playerSelection = document.querySelector('kbd');
           //  console.log(playerSelection);
         }));
