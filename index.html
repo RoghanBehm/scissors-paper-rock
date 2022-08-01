@@ -1,51 +1,119 @@
-<html><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Page Title</title>
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scissors, Paper, Rock</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1>Scissors, Paper, Rock</h1>
+    <div class="images">
+        <div class="block">
+            <div class="choices">
+                <div id="scissors" class="choice">
+                    <img src="./images/Scissors.png">
+                </div>
+                <div id="paper" class="choice">
+                    <img src="./images/Paper.png">
+                </div>
+                <div id="rock" class="choice">
+                    <img src="./images/Rock.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <h5 id="container">
+        <br> Results <br>
+    </h5>
     <script>
+        
         let outcomes = ['scissors', 'paper', 'rock'];
         function getComputerChoice() {
             return outcomes[Math.floor(Math.random() * outcomes.length)];
           
         }
-        
+        let playerPoints = 0;
+        let computerPoints = 0;
             
         function playRound(playerSelection, computerSelection) {
             if (computerSelection == "rock" && playerSelection == "rock") {
                 return "Draw!";
             } else if (computerSelection == "rock" && playerSelection == "scissors") {
+                computerPoints ++;
                 return "Computer wins! Rock beats Scissors";
             } else if (computerSelection == "rock" && playerSelection == "paper") {
+                playerPoints ++;
                 return ("Player wins! Paper beats Rock");
             } else if (computerSelection == "scissors" && playerSelection == "paper") {
+                computerPoints++;
                 return ("Computer wins! Scissors beats Paper")
             } else if (computerSelection == "scissors" && playerSelection == "scissors") {
                 return "Draw!"
             } else if (computerSelection == "scissors" && playerSelection == "rock") {
+                playerPoints++;
                 return "Player wins! Rock beats Scissors";
             } else if (computerSelection == "paper" && playerSelection == "rock") {
+                computerPoints++;
                 return "Computer wins! Paper beats Rock";
             } else if (computerSelection == "paper" && playerSelection == "scissors") {
+                playerPoints++;
                 return "Player wins! Scissors beats Paper"
             } else if (computerSelection == "paper" && playerSelection == "paper") {
                 return "Draw!"
             }
         }
         
-       
+      
         
-        function game() {
-           
-            for (let i = 0; i < 5; i++) {
-                let playerSelection = prompt("Scissors, paper or rock?").toLowerCase();
-                let computerSelection = getComputerChoice().toLowerCase();
-                console.log(playRound(playerSelection, computerSelection));
-            }
-        }
-        game();
+
+        
+        const btns = document.querySelectorAll(".choice");
+        
+        const result = document.createElement('div');
+        container.appendChild(result);
+        result.classList.add('result')
+        const points = document.createElement('div');
+        container.appendChild(points);
+        points.classList.add('points')
+        const gameEnd = document.createElement('div');
+        container.appendChild(gameEnd);
+        gameEnd.classList.add('gameEnd')
+
+        btns.forEach(choice => choice.addEventListener('click', () =>  {
+            let playerSelection = choice.id;
+            let computerSelection = getComputerChoice();
             
+            result.textContent = playRound(playerSelection, computerSelection);
+            
+            points.textContent = `Player wins: ${playerPoints} Computer wins: ${computerPoints}`
+            if (playerPoints >= 5) {
+                gameEnd.textContent = "Congratulations, you are the Scissors, Paper, Rock champion!";
+                computerPoints = 0;
+                playerPoints = 0;
+            }
+            if (computerPoints >= 5) {
+                gameEnd.textContent = "You lose!";
+                computerPoints = 0;
+                playerPoints = 0;
+            }
+
+            
+           // let playerSelection = document.querySelector('kbd');
+          //  console.log(playerSelection);
+        }));
+        
+        
+        
+      /*   let playerSelection; 
+        window.addEventListener('click', function(e) {
+            const playerSelection = document.querySelector();
+            console.log(playerSelection);
+            game(); 
+            
+
+        });*/
           
 
     </script>

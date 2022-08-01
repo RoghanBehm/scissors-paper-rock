@@ -1,0 +1,59 @@
+.choices {
+    display: flex;
+    padding: 80px 250px 0px 250px;
+    
+    
+}
+
+.block {
+    display: flex;
+    align-items: center;
+    
+}
+
+.choice img {
+    min-width: 80%;
+    max-width: 80%;
+    
+    
+}
+
+#container  {
+    font-size: 40px;
+    font-family: monospace, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:azure
+    
+}
+
+
+.gameEnd, .result, .points {
+    font-size: 20px;
+    
+}
+
+.gameEnd {
+    margin-top: 30px;
+}
+
+.result {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+    color: azure;
+}
+h5 {
+    margin: 0px;
+    
+}
+body {
+    background-color: mediumslateblue;
+    text-align: center;
+}
+
+.images {
+    display: flex;
+    
+}
