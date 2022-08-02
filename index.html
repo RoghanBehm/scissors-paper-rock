@@ -23,10 +23,14 @@
                 </div>
             </div>
         </div>
+        <div class="block2">
+            <h3>Can you beat the Machine?</h3> <p> First to five takes the win! </p>
+        </div>
     </div>
     <h5 id="container">
         <br> Results <br>
     </h5>
+   
     <script>
         
         let outcomes = ['scissors', 'paper', 'rock'];
@@ -71,6 +75,7 @@
         
         const btns = document.querySelectorAll(".choice");
 
+        
         const result = document.createElement('div');
         container.appendChild(result);
         result.classList.add('result')
@@ -100,6 +105,7 @@
                 playerPoints = 0;
             
             }
+            
             function removeTransition(e) {
                 if (e.propertyName !== 'transform') return;
                 this.classList.remove('playing');

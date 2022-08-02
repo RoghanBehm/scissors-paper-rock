@@ -1,6 +1,6 @@
 .choices {
     display: flex;
-    padding: 80px 250px 0px 250px;
+    padding: 80px 0px 0px 256px;
     
     
 }
@@ -33,6 +33,7 @@
 
 .gameEnd {
     margin-top: 30px;
+    font-size: 26px;
 }
 
 .result {
@@ -67,4 +68,12 @@ body {
     border-color:whitesmoke;
     box-shadow: 0 0 100px whitesmoke;
     border-radius: 25px;
+}
+
+.block2 {
+    padding-right: 60px;
+    padding-top: 185px;
+    font-size: larger;
+    color: whitesmoke;
+    font-family: monospace, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
